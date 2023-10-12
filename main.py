@@ -7,7 +7,7 @@ from consolemenu.items import *
 
 def copy_files(title, backup_folder_path, sd_folder_path, date):
   for item in sd_folder_path:
-    sd_card_path = "/Volumes/Untitled/DCIM/" + item
+    sd_card_path = sd_folder_path + item
     n = len(os.listdir(sd_card_path))
     print(f"{n} photos are available to copy on {sd_card_path}")
 
