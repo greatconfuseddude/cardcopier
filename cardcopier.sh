@@ -1,3 +1,4 @@
 #!/bin/bash
 cd #cd to directory where main.py is stored as needed
-python3 main.py -r requirements.txt
+pip install -r requirements.txt
+python3 main.py
