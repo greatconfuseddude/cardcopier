@@ -26,7 +26,8 @@ def copy_files(title, backup_folder_path, sd_folder_path, date):
 def backup():
   title = input("Enter the event title for your archival folder: ")
   camera_brands = ["Sony","Nikon","Polaroid"]
-  camera_menu = SelectionMenu(camera_brands); camera_menu.show()
+  camera_menu = SelectionMenu(camera_brands)
+  camera_menu.show()
 
   if camera_brands[camera_menu.selected_option] == 0 or 1:
     sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
@@ -46,11 +47,11 @@ def backup():
   backup_folder_path = os.path.join(attached_drive_path, title)
   os.mkdir(backup_folder_path)
   
-  print(f"Folder was created at {backup_folder_path}")
+  print(f"Folder {title} was created at {backup_folder_path}")
 
   with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    fdate = os.path.getctime("/Volumes/Untitled/DCIM/")
-    date = dt.datetime.utcfromtimestamp(fdate).strftime("%Y-%m-%d")
+    pre_date = os.path.getctime("/Volumes/Untitled/DCIM/")
+    date = dt.datetime.utcfromtimestamp(pre_date).strftime("%Y-%m-%d")
     
     executor.map(copy_files(title, 
                             backup_folder_path, 
