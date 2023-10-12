@@ -1,2 +1,2 @@
 tqdm
-consolemenu
+console-menu
