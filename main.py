@@ -44,9 +44,9 @@ def backup():
     print("try again")
 
   drives_list = ["Sabrent",
-                 "Seagate",
-                 "Backup Plus",
-                 "My Passport For Mac"]
+                "Backup Plus",
+                "My Passport For Mac",
+                "My Passport For Mac Two"]
   
   selection_menu = SelectionMenu(drives_list)
   selection_menu.show()
