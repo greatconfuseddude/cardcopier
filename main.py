@@ -53,7 +53,7 @@ def backup():
   print(f"Folder {title} was created at {backup_folder_path}")
 
   with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    pre_date = os.path.getctime(sd_folder_date)
+    pre_date = os.path.getctime(sd_folder_path)
     date = dt.datetime.utcfromtimestamp(pre_date).strftime("%Y-%m-%d")
     
     executor.map(copy_files(title, 
