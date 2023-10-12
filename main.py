@@ -25,7 +25,7 @@ def copy_files(title, backup_folder_path, sd_folder_path, date):
 
 def backup():
   title = input("Enter the event title for your archival folder: ")
-  camera_brands = ["Sony","Nikon","Polaroid"]
+  camera_brands = ["Sony","Nikon","Canon","Polaroid"]
   camera_menu = SelectionMenu(camera_brands)
   camera_menu.show()
 
@@ -34,7 +34,9 @@ def backup():
   elif camera_brands[camera_menu.selected_option] == 2:
     #sd_folder_path = os.listdir(f"/Volumes/Untitled/????????")
     print("gud luk wit that")
-
+  elif camera_brands[camera_menu.selected_option] == 3:
+    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/100CANON/")
+    
   drives_list = ["Sabrent",
                 "Backup Plus",
                 "My Passport For Mac",
