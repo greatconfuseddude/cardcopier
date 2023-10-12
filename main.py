@@ -28,19 +28,16 @@ def backup():
   camera_brands = ["Sony","Nikon","Canon","Polaroid"]
   camera_menu = SelectionMenu(camera_brands)
   camera_menu.show()
-  print(camera_brands[camera_menu.selected_option])
-
-  if camera_brands[camera_menu.selected_option] == "Sony" or "Nikon":
-    try:
-      sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
-      print(sd_folder_path)
-    except FileNotFoundError:
-      ...
-  elif camera_brands[camera_menu.selected_option] == "Canon":
+  
+  cma = camera_menu.selected_option + 1
+  if cma == 1:
+    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
+  elif cma == 2:
+    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
+  elif cma == 3:
     sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/100CANON/")
-    print(sd_folder_path)
-  elif camera_brands[camera_menu.selected_option] == "Polaroid":
-    #sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/100CANON/")
+  elif cma == 4:
+    #sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/???N/")
     print("try again")
 
   drives_list = ["Sabrent",
