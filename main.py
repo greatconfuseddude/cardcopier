@@ -27,9 +27,8 @@ def backup():
   title = input("Enter the event title for your archival folder: ")
   camera_brands = ["Sony","Nikon","Canon","Polaroid"]
   camera_menu = SelectionMenu(camera_brands)
-  camera_menu.show()
+  camera_menu.show(); cma = camera_menu.selected_option + 1
   
-  cma = camera_menu.selected_option + 1
   if cma == 1:
     sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
   elif cma == 2:
@@ -51,7 +50,6 @@ def backup():
   attached_drive_path = "/Volumes/"+drives_list[selection_menu.selected_option]
   backup_folder_path = os.path.join(attached_drive_path, title)
   os.mkdir(backup_folder_path)
-  
   print(f"Folder {title} was created at {backup_folder_path}")
 
   with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
