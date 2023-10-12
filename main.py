@@ -1,4 +1,4 @@
-import os, shutil, glob
+import os, shutil
 import datetime as dt
 import concurrent.futures
 from tqdm import tqdm
