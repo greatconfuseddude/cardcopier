@@ -28,19 +28,25 @@ def backup():
   camera_brands = ["Sony","Nikon","Canon","Polaroid"]
   camera_menu = SelectionMenu(camera_brands)
   camera_menu.show()
+  print(camera_brands[camera_menu.selected_option])
 
-  if camera_brands[camera_menu.selected_option] == 0 or 1:
-    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
-  elif camera_brands[camera_menu.selected_option] == 2:
-    #sd_folder_path = os.listdir(f"/Volumes/Untitled/????????")
-    print("gud luk wit that")
-  elif camera_brands[camera_menu.selected_option] == 3:
+  if camera_brands[camera_menu.selected_option] == "Sony" or "Nikon":
+    try:
+      sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
+      print(sd_folder_path)
+    except FileNotFoundError:
+      ...
+  elif camera_brands[camera_menu.selected_option] == "Canon":
     sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/100CANON/")
-    
+    print(sd_folder_path)
+  elif camera_brands[camera_menu.selected_option] == "Polaroid":
+    #sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/100CANON/")
+    print("try again")
+
   drives_list = ["Sabrent",
-                "Backup Plus",
-                "My Passport For Mac",
-                "My Passport For Mac Two"]
+                 "Seagate",
+                 "Backup Plus",
+                 "My Passport For Mac"]
   
   selection_menu = SelectionMenu(drives_list)
   selection_menu.show()
