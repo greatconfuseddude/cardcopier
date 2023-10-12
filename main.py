@@ -29,9 +29,7 @@ def backup():
   camera_menu = SelectionMenu(camera_brands)
   camera_menu.show(); cma = camera_menu.selected_option + 1
   
-  if cma == 1:
-    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
-  elif cma == 2:
+  if cma == 1 or 2:
     sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
   elif cma == 3:
     sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/100CANON/")
