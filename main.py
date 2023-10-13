@@ -20,7 +20,7 @@ def copy_files(title, backup_folder_path, sd_folder_path, date):
         shutil.copy(file_path, os.path.join(backup_folder_path, new_file_name))
       except(IndexError) as e:
         print("Nuhuh u don't")
-          
+        
     print(f'Files on {sd_card_path} have completed copying')
 
 def backup():
@@ -34,16 +34,11 @@ def backup():
   elif cma == 2:
     sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
   elif cma == 3:
-    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/100CANON/")
+    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
   elif cma == 4:
-    #sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/???N/")
-    print("try again")
+    sd_folder_path = os.listdir(f"/Volumes/Untitled/DCIM/")
 
-  drives_list = ["Sabrent",
-                "Backup Plus",
-                "My Passport For Mac",
-                "My Passport For Mac Two"]
-  
+  drives_list = ["Sabrent", "Seagate", "My Passport For Mac"]  
   selection_menu = SelectionMenu(drives_list)
   selection_menu.show()
   
