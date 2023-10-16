@@ -1,34 +1,32 @@
-import datetime as dt
-import concurrent.futures
-from tqdm import tqdm
-from consolemenu import *
-from consolemenu.items import *
-
-from PyQt5.QtWidgets import * 
-from PyQt5 import QtCore, QtGui 
-from PyQt5.QtGui import * 
-from PyQt5.QtCore import * 
 import qdarktheme
 import threading
 import shutil
 import time
 import json
-import os, sys
-
+import os
+import sys
+import datetime as dt
+import concurrent.futures
+from tqdm import tqdm
+from consolemenu import *
+from consolemenu.items import *
+from PyQt6.QtWidgets import * 
+from PyQt6 import QtCore, QtGui 
+from PyQt6.QtGui import * 
+from PyQt6.QtCore import * 
 
 with open(os.getcwd() + '/settings.json' ,'r+') as file:
     file_data = json.load(file)
     drive_loc = file_data['drive_mnt_loc']
     sd_loc = file_data['sd_mnt_loc']
-
   
 class GUI(QMainWindow):   
     def __init__(self): 
         super().__init__() 
   
-        self.setWindowTitle("CopyCAT!")   
+        self.setWindowTitle("copycat")   
         self.setFixedSize(500, 320)  
-        #self.setStyleSheet("background-color: #0f1112;")  
+        self.setStyleSheet("background-color: #0f1112;")  
         self.UiComponents()   
 
         self.cat_img = QLabel(self)
@@ -52,20 +50,20 @@ class GUI(QMainWindow):
         self.cat_right.setHidden(True)
         
         title = QLabel(self)
-        title.setText("CopyCAT!")
+        title.setText("copycat")
         title.setFont(QFont('Arial', 16))
         title.resize(200, 50)
         
         save_txt = QLabel(self)
-        save_txt.setText("Save Me:")
+        save_txt.setText("SD Card:")
         save_txt.setGeometry(150, 30, 100, 20) 
         
         save_to_txt = QLabel(self)
-        save_to_txt.setText("Save Me To:")
+        save_to_txt.setText("Backup Drive:")
         save_to_txt.setGeometry(150, 90, 100, 20)
         
         album_tag_txt = QLabel(self)
-        album_tag_txt.setText("Album Tag:")
+        album_tag_txt.setText("Album Title:")
         album_tag_txt.setGeometry(175, 150, 100, 20)
         
         self.show() 
@@ -162,10 +160,9 @@ class GUI(QMainWindow):
                 print("Nuhuh u don't")
           
         print(f'Files on {sd_folder_path} have completed copying')
-        
 
 if __name__ == "__main__":    
     App = QApplication(sys.argv)
     qdarktheme.setup_theme()   
     gui = GUI()  
-    sys.exit(App.exec()) 
+    sys.exit(App.exec())
