@@ -1,4 +1,4 @@
 tqdm
 console-menu
-PyQt5
+PyQt6
 pyqtdarktheme
