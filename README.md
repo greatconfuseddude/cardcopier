@@ -1,4 +1,4 @@
-# cardcopier
+# copycat
 
 simple python SD card backup utility utilizing multithreading for improved performance
 
