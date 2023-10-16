@@ -32,20 +32,20 @@ class GUI(QMainWindow):
         self.UiComponents()   
 
         self.cat_img = QLabel(self)
-        pixmap = QPixmap(os.getcwd() + '/center.png')
+        pixmap = QPixmap(os.getcwd() + '/img/center.png')
         self.cat_img.move(400, 180)
         self.cat_img.setPixmap(pixmap)
         self.cat_img.resize(pixmap.width(), pixmap.height())
         
         self.cat_left = QLabel(self)
-        pixmap_cl = QPixmap(os.getcwd() + '/left.png')
+        pixmap_cl = QPixmap(os.getcwd() + '/img/left.png')
         self.cat_left.move(400, 180)
         self.cat_left.setPixmap(pixmap_cl)
         self.cat_left.resize(pixmap_cl.width(), pixmap_cl.height())
         self.cat_left.setHidden(True)
         
         self.cat_right = QLabel(self)
-        pixmap_cr = QPixmap(os.getcwd() + '/right.png')
+        pixmap_cr = QPixmap(os.getcwd() + '/img/right.png')
         self.cat_right.move(400, 180)
         self.cat_right.setPixmap(pixmap_cr)
         self.cat_right.resize(pixmap_cr.width(), pixmap_cr.height())
