@@ -1,18 +1,17 @@
-import datetime as dt
-import concurrent.futures
-from tqdm import tqdm
-
-from PyQt6.QtWidgets import * 
-from PyQt6 import QtCore, QtGui 
-from PyQt6.QtGui import * 
-from PyQt6.QtCore import * 
 import qdarktheme
 import threading
 import shutil
 import time
 import json
-import os, sys
-
+import os
+import sys
+import datetime as dt
+import concurrent.futures
+from tqdm import tqdm
+from PyQt6.QtWidgets import * 
+from PyQt6 import QtCore, QtGui 
+from PyQt6.QtGui import * 
+from PyQt6.QtCore import * 
 
 def get_path(which_path):
     with open(os.getcwd() + '/settings.json' ,'r+') as file:
@@ -92,7 +91,6 @@ class SettingsGUI(QMainWindow):
     def cancel(self):
         self.hide()
         
-  
 class GUI(QMainWindow):   
     def __init__(self): 
         super().__init__() 
@@ -240,7 +238,7 @@ class GUI(QMainWindow):
         with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
             pre_date = os.path.getctime(sd_loc + self.save.currentText())
             date = dt.datetime.utcfromtimestamp(pre_date).strftime("%Y-%m-%d")
-    
+            
             executor.map(self.copy_files(title, backup_folder_path, sd_loc + self.save.currentText(), date))        
         
         self.reset_ui() 
@@ -259,7 +257,6 @@ class GUI(QMainWindow):
           
         print(f'Files on {sd_folder_path} have completed copying')
         
-
 if __name__ == "__main__":    
     App = QApplication(sys.argv)
     qdarktheme.setup_theme()   
