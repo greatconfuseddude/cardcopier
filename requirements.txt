@@ -1,4 +1,3 @@
 tqdm
-console-menu
 PyQt6
 pyqtdarktheme
