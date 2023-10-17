@@ -22,9 +22,7 @@ def get_path(which_path):
         elif which_path == 'sd_path':
             return file_data['sd_mnt_loc']
 
-
 class SettingsGUI(QMainWindow):
-
     settings_closed = pyqtSignal()
 
     def __init__(self):
@@ -35,11 +33,11 @@ class SettingsGUI(QMainWindow):
         self.SettingsUI()
         
         save_txt = QLabel(self)
-        save_txt.setText("Default Save Path:")
+        save_txt.setText("Default SD Card Path:")
         save_txt.setGeometry(50, 10, 150, 20) 
         
         save_to_txt = QLabel(self)
-        save_to_txt.setText("Default Save To Path:")
+        save_to_txt.setText("Default Backup Drive Path:")
         save_to_txt.setGeometry(50, 70, 150, 20)
         
     def SettingsUI(self): 
@@ -99,7 +97,7 @@ class GUI(QMainWindow):
     def __init__(self): 
         super().__init__() 
   
-        self.setWindowTitle("CopyCAT!")   
+        self.setWindowTitle("copycat")   
         self.setFixedSize(500, 320)    
         self.MainUI()   
 
@@ -124,20 +122,20 @@ class GUI(QMainWindow):
         self.cat_right.setHidden(True)
         
         title = QLabel(self)
-        title.setText("CopyCAT!")
+        title.setText("copycat")
         title.setFont(QFont('Arial', 16))
         title.resize(200, 50)
         
         save_txt = QLabel(self)
-        save_txt.setText("Save Me:")
+        save_txt.setText("SD Card path:")
         save_txt.setGeometry(130, 35, 100, 20) 
         
         save_to_txt = QLabel(self)
-        save_to_txt.setText("Save Me To:")
+        save_to_txt.setText("Backup Drive path:")
         save_to_txt.setGeometry(130, 95, 100, 20)
         
         album_tag_txt = QLabel(self)
-        album_tag_txt.setText("Album Tag:")
+        album_tag_txt.setText("Album Title:")
         album_tag_txt.setGeometry(175, 155, 100, 20)
         
         self.show() 
@@ -150,8 +148,12 @@ class GUI(QMainWindow):
         
         self.save_to = QComboBox(self)   
         self.save_to.setGeometry(130, 115, 240, 30)
-        self.attached_drive_list = os.listdir(get_path('drive_path'))
-        self.save_to.addItems(self.attached_drive_list)  
+        
+        try: 
+            self.sd_folder_path = os.listdir(get_path('sd_path'))
+            self.save.addItems(self.sd_folder_path)  
+        except FileNotFoundError:
+            pass
 
         self.album_tag = QLineEdit(self)
         self.album_tag.setGeometry(175, 175, 150, 30) 
@@ -182,7 +184,6 @@ class GUI(QMainWindow):
         self.save.addItems(os.listdir(get_path('sd_path')))
         self.save_to.addItems(os.listdir(get_path('drive_path')))
         
-    
     def cat_dance(self):
         self.dance = True
         self.cat_img.setHidden(True)
@@ -263,4 +264,4 @@ if __name__ == "__main__":
     App = QApplication(sys.argv)
     qdarktheme.setup_theme()   
     gui = GUI()  
-    sys.exit(App.exec()) 
+    sys.exit(App.exec())
