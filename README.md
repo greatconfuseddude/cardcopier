@@ -20,9 +20,15 @@ cd copycat
 sudo sh install.sh
 ```
 
+**Run:**
+
+```
+python3 copycat
+```
 
 
-Create a bash file on your desktop to run it:
+
+Or create a bash file on your desktop to run it:
 
 ```
 #!/bin/bash
