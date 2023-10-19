@@ -19,8 +19,11 @@ cd copycat
 ```
 sudo sh install.sh
 ```
+
+Create a file on your desktop to run it:
 ```
-sh run.sh (to create a Desktop extension)
+cd #INSTALL_DIRECTORY
+sh run.sh
 ```
 
 <img width="499" alt="Screenshot 2023-10-17 at 11 44 56 AM" src="https://github.com/greatconfuseddude/copycat/assets/33528796/c9414d46-ecfa-4e5e-b0f5-360b46144485">
