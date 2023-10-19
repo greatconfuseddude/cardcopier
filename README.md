@@ -22,7 +22,7 @@ sudo sh install.sh
 
 **Run:**
 
-```
+```python
 python3 copycat
 ```
 
