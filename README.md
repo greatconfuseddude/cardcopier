@@ -18,7 +18,8 @@ sudo sh install.sh
 
 **Run:**
 
-```python
+```
+cd ..
 python3 copycat
 ```
 
