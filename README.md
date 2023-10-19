@@ -12,11 +12,7 @@ available for Mac and Linux
 
 ```
 git clone https://github.com/greatconfuseddude/copycat.git
-```
-```
 cd copycat
-```
-```
 sudo sh install.sh
 ```
 
