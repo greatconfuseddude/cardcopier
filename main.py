@@ -1,3 +1,8 @@
+from PyQt6.QtWidgets import * 
+from PyQt6 import QtCore, QtGui 
+from PyQt6.QtGui import * 
+from PyQt6.QtCore import * 
+from tqdm import tqdm
 import datetime as dt
 import concurrent.futures
 import qdarktheme
@@ -7,12 +12,6 @@ import time
 import json
 import sys
 import os
-
-from PyQt6.QtWidgets import * 
-from PyQt6 import QtCore, QtGui 
-from PyQt6.QtGui import * 
-from PyQt6.QtCore import * 
-from tqdm import tqdm
 
 def get_path(which_path):
     try:
@@ -80,15 +79,11 @@ class SettingsGUI(QMainWindow):
         self.select_drive.setIcon(QIcon(os.getcwd() + '/img/search.png'))
         
     def select_sd_loc(self):
-        dialog = QFileDialog.getExistingDirectory(self, 
-                                                  'Select Directory', 
-                                                  self.save_path.text()) + '/'
+        dialog = QFileDialog.getExistingDirectory(self, 'Select Directory', self.save_path.text()) + '/'
         self.save_path.setText(dialog)
         
     def select_drive_loc(self):
-        dialog = QFileDialog.getExistingDirectory(self, 
-                                                  'Select Directory', 
-                                                  self.save_to_path.text()) + '/'
+        dialog = QFileDialog.getExistingDirectory(self, 'Select Directory', self.save_to_path.text()) + '/'
         self.save_to_path.setText(dialog)
         
     def save_settings(self):
@@ -219,12 +214,7 @@ class GUI(QMainWindow):
         self.save.setEnabled(False)
         self.save_to.setEnabled(False)
         self.album_tag.setEnabled(False)
-        self.thread = threading.Thread(target=self.backup, 
-                                       args=(self.album_tag.text(), 
-                                             get_path('sd_path'), 
-                                             get_path('drive_path'),
-                                            ), 
-                                       daemon=True)
+        self.thread = threading.Thread(target=self.backup, args=(self.album_tag.text(), get_path('sd_path'), get_path('drive_path'),), daemon=True)
         self.thread.start()
         self.catdance = threading.Thread(target=self.cat_dance, daemon=True)
         self.catdance.start()
@@ -260,11 +250,7 @@ class GUI(QMainWindow):
             pre_date = os.path.getctime(sd_loc + self.save.currentText())
             date = dt.datetime.utcfromtimestamp(pre_date).strftime("%Y-%m-%d")
     
-            executor.map(self.copy_files(title, 
-                                         backup_folder_path, 
-                                         sd_loc + self.save.currentText(), 
-                                         date)
-                        )        
+            executor.map(self.copy_files(title, backup_folder_path, sd_loc + self.save.currentText(), date))        
         
         self.reset_ui() 
         
@@ -277,12 +263,7 @@ class GUI(QMainWindow):
                 file_path = os.path.join(sd_folder_path, file_name)
                 new_file_name = title + "_" + date + "_RAW_" + file_name
                 shutil.copy(file_path, os.path.join(backup_folder_path, new_file_name))
-                self.pbar.setValue(int(
-                    (
-                        (i/len([entry for entry in os.listdir(sd_folder_path) 
-                                if os.path.isfile(os.path.join(sd_folder_path, 
-                                                               entry))])
-                        )*100))) 
+                self.pbar.setValue(int(((i/len([entry for entry in os.listdir(sd_folder_path) if os.path.isfile(os.path.join(sd_folder_path, entry))]))*100))) 
                 i += 1
             except(IndexError) as e:
                 print("Nuhuh u don't")
