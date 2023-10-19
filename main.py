@@ -249,16 +249,14 @@ class GUI(QMainWindow):
         with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
             pre_date = os.path.getctime(sd_loc + self.save.currentText())
             date = dt.datetime.utcfromtimestamp(pre_date).strftime("%Y-%m-%d")
-    
+            
             executor.map(self.copy_files(title, backup_folder_path, sd_loc + self.save.currentText(), date))        
         
         self.reset_ui() 
         
     def copy_files(self, title, backup_folder_path, sd_folder_path, date):  
         i = 1           
-        for file_name in tqdm(os.listdir(sd_folder_path), 
-                              mininterval=2, 
-                              desc="Photo backup is in progress"):
+        for file_name in tqdm(os.listdir(sd_folder_path), mininterval=2, desc="Photo backup is in progress"):
             try:
                 file_path = os.path.join(sd_folder_path, file_name)
                 new_file_name = title + "_" + date + "_RAW_" + file_name
@@ -267,7 +265,6 @@ class GUI(QMainWindow):
                 i += 1
             except(IndexError) as e:
                 print("Nuhuh u don't")
-                
         print(f'Files on {sd_folder_path} have completed copying')
         
 if __name__ == "main":    
