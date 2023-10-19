@@ -274,7 +274,7 @@ class GUI(QMainWindow):
         print(f'Files on {sd_folder_path} have completed copying')
         
 
-if __name__ == "__main__":    
+if __name__ == "main":    
     App = QApplication(sys.argv)
     qdarktheme.setup_theme()   
     gui = GUI()  
