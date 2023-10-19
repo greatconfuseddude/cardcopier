@@ -28,7 +28,7 @@ Or create a bash file on your desktop to run it:
 
 ```
 #!/bin/bash
-cd #INSTALL_DIRECTORY
+cd copycat #INSTALL_DIRECTORY
 sh run.sh
 ```
 
