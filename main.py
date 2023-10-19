@@ -13,7 +13,6 @@ import json
 import sys
 import os
 
-
 def get_path(which_path):
     try:
         with open(os.getcwd() + '/settings.json' ,'r+') as file:
@@ -30,9 +29,7 @@ def get_path(which_path):
     except FileNotFoundError:
         return os.path.expanduser("~/")
 
-
 class SettingsGUI(QMainWindow):
-
     settings_closed = pyqtSignal()
 
     def __init__(self):
@@ -107,7 +104,6 @@ class SettingsGUI(QMainWindow):
     def cancel(self):
         self.hide()
         
-  
 class GUI(QMainWindow):   
     def __init__(self): 
         super().__init__() 
@@ -195,7 +191,6 @@ class GUI(QMainWindow):
         self.save.addItems(os.listdir(get_path('sd_path')))
         self.save_to.addItems(os.listdir(get_path('drive_path')))
         
-    
     def cat_dance(self):
         self.dance = True
         self.cat_img.setHidden(True)
@@ -273,7 +268,6 @@ class GUI(QMainWindow):
           
         print(f'Files on {sd_folder_path} have completed copying')
         
-
 if __name__ == "main":    
     App = QApplication(sys.argv)
     qdarktheme.setup_theme()   
