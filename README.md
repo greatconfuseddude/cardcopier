@@ -1,5 +1,7 @@
 # copycat
 
+photography backup utility with catitude
+
 simple python+bash SD card to backup drive utility utilizing multithreading for improved performance
 
 appends date, raw label, and various characteristics to all copied photos and files
