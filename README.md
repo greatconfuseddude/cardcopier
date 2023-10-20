@@ -8,13 +8,22 @@ appends date, raw label, and various characteristics to all copied photos and fi
 available for Mac and Linux
 
 
-**Install:**
+**Linux Install:**
 
 ```
 git clone https://github.com/greatconfuseddude/copycat.git
 cd copycat
 ./install.sh
 ```
+
+**MacOS Install:**
+
+```
+git clone https://github.com/greatconfuseddude/copycat.git
+cd copycat
+sudo sh install.sh
+```
+
 
 **Run:**
 
