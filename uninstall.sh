@@ -1,3 +1,2 @@
 #!/bin/bash
-cd
-sudo rm -rf copycat
+sudo rm -rf /opt/copycat
