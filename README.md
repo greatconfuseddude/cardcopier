@@ -16,7 +16,7 @@ cd copycat
 ./install.sh
 ```
 
-**MacOS Install:**
+**MacOS Terminal Install:**
 
 ```
 git clone https://github.com/greatconfuseddude/copycat.git
