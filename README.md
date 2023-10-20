@@ -13,24 +13,13 @@ available for Mac and Linux
 ```
 git clone https://github.com/greatconfuseddude/copycat.git
 cd copycat
-sudo sh install.sh
+./install.sh
 ```
 
 **Run:**
 
 ```
-cd ..
-python3 copycat
-```
-
-
-
-Or create a bash file on your desktop to run it:
-
-```
-#!/bin/bash
-cd copycat #INSTALL_DIRECTORY
-sh run.sh
+copycat
 ```
 
 
