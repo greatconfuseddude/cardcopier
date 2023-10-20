@@ -4,7 +4,6 @@ INSTALL_LOC='/opt/copycat'
 ALIAS='alias copycat="'${INSTALL_LOC}'/.venv/bin/python3 '${INSTALL_LOC}'/__main__.py"'
 
 echo "SUDO required for install"
-sudo apt install python3-venv -y
 sudo mkdir -p $INSTALL_LOC/img
 sudo cp -r * $INSTALL_LOC
 sudo python3 -m venv $INSTALL_LOC/.venv
